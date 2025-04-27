@@ -1,0 +1,30 @@
+<!-- src/app/components/home/home.component.html -->
+<h1>Products</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.name }}</td> <!-- Adjust for the correct field -->
+    </tr>
+  </tbody>
+</table>
+
+
+<form (ngSubmit)="onSubmit()" #productForm="ngForm">
+    <label for="productName">Product Name:</label>
+    <input
+      type="text"
+      id="productName"
+      name="name"
+      [(ngModel)]="product.name"
+      required
+      #productName="ngModel"
+    />
+    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+  </form>
+
+  
